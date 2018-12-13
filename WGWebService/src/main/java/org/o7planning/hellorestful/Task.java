@@ -2,7 +2,10 @@ package org.o7planning.hellorestful;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+@JsonInclude(Include.NON_NULL)
 public class Task {
 	private String uuid;
 	private long id;
@@ -17,6 +20,18 @@ public class Task {
 		this.id = id;
 		this.description = description;
 	}
+	public String toJASON() {
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "ERROR";
+		try {
+			json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
 	public String getUuid() {
 		return uuid;
 	}
