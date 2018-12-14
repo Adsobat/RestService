@@ -13,12 +13,7 @@ import javax.ws.rs.Produces;
 
 @Path("/wgser")
 public class WgRESTfulService {
-	
-	
-	
-	        	   
-	        	   
-	        	   
+     	   
 	  // EXAMPLE CODE      	   
 	  private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	

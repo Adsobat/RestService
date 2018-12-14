@@ -1,13 +1,22 @@
 package org.o7planning.hellorestful;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@JsonInclude(Include.NON_NULL)	
 public class User {
 	private String uuid;
 	private Long id;
 	private String name;
 	
+	public User createDefault() {
+		this.uuid = "defaultUuidUser";
+		this.id = new Long(1);
+		this.name = "default User";
+		return this;
+	}
 	public String toJASON() {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "ERROR";

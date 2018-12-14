@@ -5,21 +5,42 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@JsonInclude(Include.NON_NULL)
+@JsonInclude(Include.NON_NULL)	
 public class Task {
+	@JsonInclude(Include.NON_EMPTY)	
 	private String uuid;
-	private long id;
+	@JsonInclude(Include.NON_NULL)	
+	private Long id;
 	@JsonInclude(Include.NON_NULL)
-	private User asingedUser;	
+	private User asingedUser;
+	@JsonInclude(Include.NON_EMPTY)	
 	private String description;
 	
+	public void createDefault() {
+		uuid = "uu1";
+		id = new Long(1);
+		description = "default";
+	}
+	// checks if the values in inTask are filled and if so it replaces them with his own
+	public void insertPartialTask(Task inTask) {
+		if(inTask.uuid != null) 		{this.uuid = inTask.uuid;}
+		if(inTask.id != null) 			{this.id = inTask.id;}
+		if(inTask.asingedUser != null) 	{this.asingedUser = inTask.asingedUser;}
+		if(inTask.description != null)	{this.description = inTask.description;}
+		
+	}
 	public Task() {		
 	}
-	public Task(String uuid, long id, String description) {	
+	public Task(String uuid, Long id, String description) {	
 		this.uuid = uuid;
 		this.id = id;
 		this.description = description;
 	}
+	@Override
+	public String toString() {
+		return this.toJASON();
+	}
+	
 	public String toJASON() {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "ERROR";
@@ -40,11 +61,11 @@ public class Task {
 		this.uuid = uuid;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
