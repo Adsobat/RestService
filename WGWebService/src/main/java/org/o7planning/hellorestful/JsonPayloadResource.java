@@ -16,7 +16,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("/json-payload/movies")
+@Path("/movies")
 public class JsonPayloadResource {
 	/*
 	 * -Aufgaben innerhalb der WG erstellen /löschen /erledigen /user neu zuweisen
@@ -60,14 +60,6 @@ public class JsonPayloadResource {
 		dummyTask.createDefault();
 		dummyTask.setAsingedUser(new User().createDefault());
 		dummyTask.insertPartialTask(task);
-//		if(!task.getDescription().isEmpty())
-//		dummyTask.setDescription(task.getDescription());
-//		if(task.getId() != null)
-//		dummyTask.setId(task.getId());
-//		if (!task.getUuid().isEmpty())
-//		dummyTask.setUuid(task.getUuid());
-		
-		
 		return dummyTask.toJASON();
 		
 	}
