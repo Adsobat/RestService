@@ -6,16 +6,22 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.GET;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+
+//import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
-import javax.ws.rs.POST;
+//import javax.ws.rs.POST;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.core.MediaType;
+//import javax.ws.rs.Produces;
+//import javax.ws.rs.Consumes;
+//import javax.ws.rs.core.MediaType;
 
-
+@Api(value ="ProductsControllerAPI", produces = MediaType.APPLICATION_JSON)
 @Path("/movies")
 public class JsonPayloadResource {
 	/*
@@ -30,6 +36,9 @@ public class JsonPayloadResource {
 	@Path("{uuid}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@ApiOperation("Gets the product with specific id")
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "OK", response = Task.class)})//
+	
 	public String giveMovie_JSON(@PathParam("uuid") String uuid)//
 	{
 		return "get works with uuid: " + uuid;

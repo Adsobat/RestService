@@ -1,1 +1,6 @@
-/home/julian/eclipse-workspace/HelloRESTful/src/main/java/org/o7planning/hellorestful/WeatherRESTfulService.java
+/home/julian/eclipse-workspace/RestService/WGWebService/src/main/java/config/SwaggerConfig.java
+/home/julian/eclipse-workspace/RestService/WGWebService/src/main/java/org/o7planning/hellorestful/User.java
+/home/julian/eclipse-workspace/RestService/WGWebService/src/main/java/org/o7planning/hellorestful/JsonPayloadResource.java
+/home/julian/eclipse-workspace/RestService/WGWebService/src/main/java/org/o7planning/hellorestful/TaskController.java
+/home/julian/eclipse-workspace/RestService/WGWebService/src/main/java/org/o7planning/hellorestful/Task.java
+/home/julian/eclipse-workspace/RestService/WGWebService/src/main/java/org/o7planning/hellorestful/WgRESTfulService.java
