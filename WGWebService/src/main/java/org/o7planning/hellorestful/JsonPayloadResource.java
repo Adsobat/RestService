@@ -7,6 +7,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
@@ -21,8 +26,13 @@ import javax.ws.rs.PathParam;
 //import javax.ws.rs.Consumes;
 //import javax.ws.rs.core.MediaType;
 
-@Api(value ="ProductsControllerAPI", produces = MediaType.APPLICATION_JSON)
+//@Api(value ="ProductsControllerAPI", produces = MediaType.APPLICATION_JSON)
+//@RequestMapping(path = "/movies")
+//@RestController
 @Path("/movies")
+@RestController
+@RequestMapping(path = "/api/products/")
+@Api(value = "ProductsControllerAPI", produces = MediaType.APPLICATION_JSON)
 public class JsonPayloadResource {
 	/*
 	 * -Aufgaben innerhalb der WG erstellen /löschen /erledigen /user neu zuweisen
@@ -33,6 +43,13 @@ public class JsonPayloadResource {
 	 * DELETE: Löschen
 	 * 
 	 */
+    @RequestMapping(path = "/d/{id}", method = RequestMethod.GET)
+    @ApiOperation("Gets dummy stuff")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "OK")})
+    public String getDummyMethod(@PathVariable(name = "id") String id) {
+        return "you chose: " + id;
+    }
+    
 	@Path("{uuid}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

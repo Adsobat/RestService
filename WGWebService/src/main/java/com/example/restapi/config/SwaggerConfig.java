@@ -20,8 +20,8 @@ public class SwaggerConfig {
 
     private static final String SWAGGER_API_VERSION = "1.0";
     private static final String LICENSE_TEXT = "License";
-    private static final String title = "Products REST API";
-    private static final String description = "RESTful API for Products";
+    private static final String title = "WG Service REST API";
+    private static final String description = "RESTful API for all your WG needs";
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
